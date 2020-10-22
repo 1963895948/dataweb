@@ -1,0 +1,52 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new_blah2.css' %}">
+</head>
+<body>
+    <!--<div class="header">
+        <img src="{% static 'images/blah.png' %}">
+        <ul class="nav">
+            <li><a href="{% url 'bj' %}">北京</a></li>
+            <li><a href="{% url 'sh' %}">上海</a></li>
+            <li><a href="{% url 'cs' %}">长沙</a></li>
+        </ul>
+    </div>-->
+
+    <div class="header">
+        <img src="{% static 'images/blah.png' %}">
+        <h1>{{ values }}</h1>
+    </div>
+    <div class="main-content">
+        <h1>信息选择</h1>
+         <ul class="articles">
+                <li><a href="{% url 'bj' %}">北京</a></li>
+                <li><a href="{% url 'sh' %}">上海</a></li>
+                <li><a href="{% url 'wh' %}">武汉</a></li>
+                <li><a href="{% url 'gz' %}">广州</a></li>
+                <li><a href="{% url 'cs' %}">长沙</a></li>
+                <li><a href="{% url 'cd' %}">成都</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <ul class="articles">
+                <li><a href="{% url 'updata' %}">上传数据</a></li>
+                <li><a href="{% url 'download' %}">下载数据</a></li>
+        </ul>
+
+    </div>
+
+
+    <div class="footer">
+        <p>&copy; Mugglecoding</p>
+    </div>
+
+<script type="text/javascript">
+    if({{ values }}=='登陆成功')
+        alert({{ values }});
+
+</script>
+</body>
+</html>
+

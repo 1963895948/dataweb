@@ -1,0 +1,545 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new_blah2.css' %}">
+    <script src="/static/js/echarts.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'images/blah.png' %}">
+        <ul class="nav">
+            <li><a href="{% url 'index' %}">首页</a></li>
+        </ul>
+    </div>
+    <!---<div class="main-content">
+        <h2>Article</h2>
+            {% for item in data %}
+                <li>{{ item }}
+                </li>
+            {% endfor %}
+    </div>-->
+    <div>
+        <div  id="main" style="margin-left: 100px;width: 600px;height:400px;background-color: #ffffff;float: left">
+
+        </div>
+        <div id="main2" style="width: 600px;height:400px;background-color: #ffffff;margin-left:20px;float: left">
+
+        </div>
+        <div style="width: 1400px;height:100px;margin-left:20px;float: left">
+            <p style="text-align:center">长沙出租的房屋类型如图可见，主要以2室1厅1卫，一室一厅一卫，三室一厅一卫为主，与贝壳网相比，并无太大区别</p>
+        </div>
+        <div  id="main3" style="margin-left: 100px;width: 600px;height:400px;background-color: #ffffff;float: left;margin-top: 20px">
+
+        </div>
+        <div id="main4" style="width: 600px;height:400px;background-color: #ffffff;margin-left:20px;float: left;margin-top: 20px">
+
+        </div>
+        <div style="width: 1400px;height:100px;margin-left:20px;float: left">
+            <p style="text-align:center">长沙出租的房屋价格类型如图可见，成正态分布，主要以2000为主，与贝壳网相比，并无太大区别</p>
+        </div>
+
+
+        <div  id="main5" style="margin-left: 100px;width: 600px;height:400px;background-color: #ffffff;float: left;margin-top: 20px">
+
+        </div>
+        <div id="main6" style="width: 600px;height:400px;background-color: #ffffff;margin-left:20px;float: left;margin-top: 20px">
+        </div>
+
+        <div style="width: 1400px;height:100px;margin-left:20px;float: left">
+            <p style="text-align:center">长沙出租的房屋支付类型如图可见，主要以押一付一，押一付三为主，与贝壳网相比，并无太大区别，建议房主以这为标准，设置租房条件</p>
+        </div>
+
+        <div  id="main7" style="margin-left: 100px;width: 600px;height:400px;background-color: #ffffff;float: left;margin-top: 20px">
+        </div>
+        <div id="main8" style="width: 600px;height:400px;background-color: #ffffff;margin-left:20px;float: left;margin-top: 20px">
+        </div>
+        <div style="width: 1400px;height:100px;margin-left:20px;float: left">
+            <p style="text-align:center">长沙出租的房屋数量时间分布如图可见，从一月到6月一直在增长，与贝壳网相比，降低月份不再同一月，可能是由于公司运营的关系</p>
+        </div>
+
+
+        <div  id="main9" style="margin-left: 100px;width: 600px;height:400px;background-color: #ffffff;float: left;margin-top: 20px">
+        </div>
+        <div id="main10" style="width: 600px;height:400px;background-color: #ffffff;margin-left:20px;float: left;margin-top: 20px">
+        </div>
+        <div style="width: 1400px;height:100px;margin-left:20px;float: left">
+            <p style="text-align:center">长沙出租的房屋价格各区分布如图可见，与贝壳网相比，并无太大区别</p>
+        </div>
+
+
+        <div class="footer" style = "margin-bottom: 10px;float: left;margin-left: 600px">
+            <p>&copy; Mugglecoding</p>
+        </div>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        var option = {
+            toolbox: {
+                feature: {
+                    dataView: { //数据视图
+                        show: true
+                    },
+                    restore: { //重置
+                        show: true
+                    },
+                    dataZoom: { //数据缩放视图
+                        show: true
+                    },
+                    saveAsImage: {//保存图片
+                        show: true
+                    },
+                }
+              },
+            title: {
+                text: '长沙58同城房屋出租类型'
+            },
+            tooltip: {},
+            legend: {
+                data:['数量']
+            },
+            xAxis: {
+                data:{{ type|safe }},
+            },
+            yAxis: {},
+            series: [{
+                name: '数量',
+                type: 'bar',
+                data: {{ values|safe }}
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main2'));
+        // 指定图表的配置项和数据
+        var option = {
+            toolbox: {
+                feature: {
+                    dataView: { //数据视图
+                        show: true
+                    },
+                    restore: { //重置
+                        show: true
+                    },
+                    dataZoom: { //数据缩放视图
+                        show: true
+                    },
+                    saveAsImage: {//保存图片
+                        show: true
+                    },
+                }
+              },
+            title: {
+                text: '长沙贝壳房屋出租类型'
+            },
+            tooltip: {},
+            legend: {
+                data:['数量']
+            },
+            xAxis: {
+                data:{{ type_bj_58|safe }}
+            },
+            yAxis: {},
+            series: [{
+                name: '数量',
+                type: 'bar',
+                data: {{ values_bj_58|safe }}
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main3'));
+        // 指定图表的配置项和数据
+        var option ={
+            toolbox: {
+                feature: {
+                    dataView: { //数据视图
+                        show: true
+                    },
+                    restore: { //重置
+                        show: true
+                    },
+                    dataZoom: { //数据缩放视图
+                        show: true
+                    },
+                    saveAsImage: {//保存图片
+                        show: true
+                    },
+                }
+              },
+            title: {
+                text: '长沙58同城房屋价格类型'
+            },
+            tooltip: {},
+            legend: {
+                data:['数量']
+            },
+            xAxis: {
+                data:{{ price_bj_type_58|safe }}
+            },
+            yAxis: {},
+            series: [{
+                name: '数量',
+                type: 'bar',
+                data: {{ price_bj_values_58|safe }}
+            }]
+        };
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main4'));
+        // 指定图表的配置项和数据
+        var option = {
+            toolbox: {
+                feature: {
+                    dataView: { //数据视图
+                        show: true
+                    },
+                    restore: { //重置
+                        show: true
+                    },
+                    dataZoom: { //数据缩放视图
+                        show: true
+                    },
+                    saveAsImage: {//保存图片
+                        show: true
+                    },
+                }
+              },
+            title: {
+                text: '长沙贝壳房屋出租价格类型'
+            },
+            tooltip: {},
+            legend: {
+                data:['数量']
+            },
+            xAxis: {
+                data:{{ price_bj_type_beihe|safe }}
+            },
+            yAxis: {},
+            series: [{
+                name: '数量',
+                type: 'bar',
+                data: {{ price_bj_values_beihe|safe }}
+            }]
+        };
+        myChart.setOption(option);
+    </script>
+
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main5'));
+        // 指定图表的配置项和数据
+        var option = {
+            toolbox: {
+                feature: {
+                    dataView: { //数据视图
+                        show: true
+                    },
+                    saveAsImage: {//保存图片
+                        show: true
+                    },
+                }
+              },
+            title: {
+                text: '长沙58同城房屋出租支付类型'
+
+            },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c} ({d}%)'
+    },
+    legend: {
+        orient: 'vertical',
+        right: 10,
+        data: ['面议', '半年付', '押一付三', '押二付一', '年付', '押一付半年', '不押付一年', '押一付二', '押一付一', '押二付三', '押一付一年']
+    },
+    series: [
+        {
+            name: '付款方式',
+            type: 'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '30',
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: 28, name: '半年付'},
+                {value: 227, name: '面议'},
+                {value: 13, name: '不押付一年'},
+                {value: 554, name: '押一付一'},
+                {value: 6, name: '押一付二'},
+                {value: 1290, name: '押一付三'},
+                {value: 5, name: '押二付三'},
+                {value: 5, name: '押二付一'},
+                {value: 10, name: '押一付半年'},
+                {value: 37, name: '年付'},
+                {value: 13, name: '押一付一年'},
+            ]
+        }
+    ]
+};
+        myChart.setOption(option);
+    </script>
+
+
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main6'));
+        // 指定图表的配置项和数据
+        var option = {
+            toolbox: {
+                feature: {
+                    dataView: { //数据视图
+                        show: true
+                    },
+                    saveAsImage: {//保存图片
+                        show: true
+                    },
+                }
+              },
+            title: {
+                text: '长沙贝壳房屋出租支付类型'
+
+            },
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c} ({d}%)'
+    },
+    legend: {
+        orient: 'vertical',
+        right: 10,
+        data: ['半年付','押二付二','面议','不押付一年','押一付一','押一付二','押一付三','押二付三','押二付一',
+            '押一付半年','年付','押一付一年']
+    },
+    series: [
+        {
+            name: '付款方式',
+            type: 'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '30',
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: 21, name: '半年付'},
+                {value: 3, name: '押二付二'},
+                {value: 165, name: '面议'},
+                {value: 2, name: '不押付一年'},
+                {value: 596, name: '押一付一'},
+                {value: 2, name: '押一付二'},
+                {value: 1257, name: '押一付三'},
+                {value: 4, name: '押二付三'},
+                {value: 5, name: '押二付一'},
+                {value: 5, name: '押一付半年'},
+                {value: 24, name: '年付'},
+                {value: 2, name: '押一付一年'},
+            ]
+        }
+    ]
+};
+
+        myChart.setOption(option);
+    </script>
+
+
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main7'));
+        // 指定图表的配置项和数据
+        var option = {
+            toolbox: {
+                feature: {
+                    dataView: { //数据视图
+                        show: true
+                    },
+                    restore: { //重置
+                        show: true
+                    },
+                    dataZoom: { //数据缩放视图
+                        show: true
+                    },
+                    saveAsImage: {//保存图片
+                        show: true
+                    },
+                }
+              },
+            title: {
+                text: '长沙贝壳房屋出租支付类型'
+            },
+            tooltip: {},
+
+             xAxis: {
+                 type: 'category',
+                 data: {{ time_bj_58|safe }}
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                 data: {{ time_bj_58_vlaues|safe }},
+                 type: 'line'
+    }]
+        };
+        myChart.setOption(option);
+    </script>
+
+
+
+
+
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main8'));
+        // 指定图表的配置项和数据
+        var option = {
+            toolbox: {
+                feature: {
+                    dataView: { //数据视图
+                        show: true
+                    },
+                    restore: { //重置
+                        show: true
+                    },
+                    dataZoom: { //数据缩放视图
+                        show: true
+                    },
+                    saveAsImage: {//保存图片
+                        show: true
+                    },
+                }
+              },
+            title: {
+                text: '长沙贝壳房屋出租支付类型'
+            },
+            tooltip: {},
+            xAxis: {
+                 type: 'category',
+                 data: {{ time_bj_beihe|safe }}
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                 data: {{ time_bj_behei_vlaues|safe }},
+                 type: 'line'
+    }]}
+        myChart.setOption(option);
+    </script>
+
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main9'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '北京58同城各区房屋出租情况'
+            },
+    legend: {},
+    tooltip: {},
+    dataset: {
+        dimensions: ['product', '数量', '价格',],
+        source: [
+            {product: '星沙', '数量': 152, '价格':1753.8,},
+            {product: '雨花', '数量': 408, '价格':1746,},
+            {product: '开福', '数量': 336, '价格':2138,},
+            {product: '宁乡', '数量': 13, '价格':1350.5,},
+            {product: '望城', '数量': 53, '价格':1583.4,},
+            {product: '浏阳', '数量': 18, '价格':1340.6,},
+            {product: '长沙县', '数量': 5, '价格':1586.9,},
+            {product: '芙蓉', '数量': 294, '价格':1460,},
+            {product: '天心', '数量': 314, '价格':1884.3,},
+            {product: '岳麓', '数量': 517, '价格': 1937.7,},
+        ]
+    },
+    xAxis: {type: 'category'},
+    yAxis: {},
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [
+        {type: 'bar'},
+        {type: 'bar'},
+    ]
+};
+
+
+        myChart.setOption(option);
+    </script>
+
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main10'));
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '长沙贝壳各区房屋出租情况'
+            },
+    legend: {},
+    tooltip: {},
+    dataset: {
+        dimensions: ['product', '数量', '价格',],
+        source: [
+            {product: '星沙', '数量': 128, '价格':1848.2,},
+            {product: '雨花', '数量': 442, '价格':2191.5,},
+            {product: '开福', '数量': 438, '价格':2229.4,},
+            {product: '宁乡', '数量': 11, '价格':1300.0,},
+            {product: '望城', '数量': 46, '价格':1737.5,},
+            {product: '浏阳', '数量': 6, '价格':1066.7,},
+            {product: '长沙县', '数量': 8, '价格':1130.0,},
+            {product: '芙蓉', '数量': 305, '价格':1777.5,},
+            {product: '天心', '数量': 307, '价格':1880.0,},
+            {product: '岳麓', '数量': 468, '价格': 1825.4,},
+        ]
+    },
+    xAxis: {type: 'category'},
+    yAxis: {},
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [
+        {type: 'bar'},
+        {type: 'bar'},
+    ]
+};
+        myChart.setOption(option);
+    </script>

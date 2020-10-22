@@ -1,0 +1,37 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new_blah2.css' %}">
+    <script src="/static/js/echarts.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'images/blah.png' %}">
+        <ul class="nav">
+            <li><a href="{% url 'index' %}">首页</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h2>Article</h2>
+        <form action="/index1/" method="post">
+            {% csrf_token %}
+            <input type="checkbox" name="sh" value="上海"/>上海
+            <input type="checkbox" name="bj" value="北京"/>北京
+            <input type="checkbox" name="gz" value="广州"/>广州
+            <input type="checkbox" name="cs" value="长沙"/>长沙
+            <input type="checkbox" name="wh" value="武汉"/>武汉
+            <input type="checkbox" name="cd" value="成都"/>成都
+            <li><a href="{% url 'download1' %}">下载数据</a></li></br>
+        </form>
+
+
+    </div>
+
+
+    <div class="footer">
+        <p>&copy; Mugglecoding</p>
+    </div>
+</body>
+</html>
+

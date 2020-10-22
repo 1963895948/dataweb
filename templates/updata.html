@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new_blah2.css' %}">
+    <script src="/static/js/echarts.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'images/blah.png' %}">
+        <ul class="nav">
+            <li><a href="{% url 'index' %}">首页</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <form action="{% url 'updata' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p><input type="file" name="myFile" id="file"></p>
+        <input type="submit">
+    </form>
+
+
+    </div>
+
+
+    <div class="footer">
+        <p>&copy; Mugglecoding</p>
+    </div>
+</body>
+</html>
+
+
